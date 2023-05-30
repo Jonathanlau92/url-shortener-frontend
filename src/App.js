@@ -1,13 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
-
 import TextInput from "./components/TextInput";
+
 function App() {
 	const [url, setUrl] = useState("");
 
 	function clickHandler() {
 		axios
-			.post("http://localhost:4000/api/shorten", {
+			.post(`${process.env.REACT_APP_BASE_URL}/shorten`, {
 				origUrl: url,
 			})
 			.then((res) => {
