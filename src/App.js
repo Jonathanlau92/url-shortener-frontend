@@ -14,7 +14,7 @@ function App() {
 				origUrl: url,
 			})
 			.then((res) => {
-				setShortUrls((current) => [...current, res.data["shortUrl"]]);
+				setShortUrls([...shortUrls, res.data["shortUrl"]]);
 			})
 			.catch((error) => {
 				console.log("Facing error: ", error.message);
