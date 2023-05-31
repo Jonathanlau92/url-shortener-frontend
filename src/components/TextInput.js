@@ -6,11 +6,18 @@ const TextInput = ({
 	changeHandler,
 	clickHandler,
 	buttonName,
+	placeholder,
 }) => {
 	return (
 		<div className="textInputContainer">
 			<label>{label}</label>
-			<input name={name} type="text" onChange={(e) => changeHandler(e)} />
+			<input
+				id="inputField"
+				name={name}
+				type="text"
+				onChange={(e) => changeHandler(e)}
+				placeholder={placeholder}
+			/>
 			<button type="button" onClick={clickHandler}>
 				{buttonName}
 			</button>

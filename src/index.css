@@ -5,7 +5,10 @@ body {
   font-weight: 1.5;
   line-height: 1.5;
   color: #292b2c;
-  background-color: #6983d8;
+  height: 100vh;
+  background: linear-gradient(
+    #00ddff,
+    #ff00d4);
 }
 
 .container {
@@ -21,4 +24,46 @@ body {
 .textInputContainer {
   display: flex;
   justify-content: center;
+}
+
+input[type=text] {
+  width: 20%;
+  padding: 12px 8px;
+  margin-right: 8px;
+  border-radius: 8px;
+  border: 1px solid grey
+}
+
+input[type=text]:focus {
+  border: 1px solid grey
+}
+
+button {
+  width: 8%;
+  padding: 12px 0;
+  border: 1px solid grey;
+  border-radius: 8px;
+  background-color: #2900e0;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2e0ebe;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30px 30px 30px;
+  border: 2px solid white;
+  border-radius: 8px;
+  background-color: #fffc45;
 }

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import TextInput from "./components/TextInput";
+import ResultBox from "./components/ResultBox";
 
 function App() {
 	const [url, setUrl] = useState("");
+	// Array of short URLs
+	const [shortUrls, setShortUrls] = useState([]);
 
 	function clickHandler() {
 		axios
@@ -11,7 +14,8 @@ function App() {
 				origUrl: url,
 			})
 			.then((res) => {
-				console.log("Response of API: ", res);
+				setShortUrls((current) => [...current, res.data["shortUrl"]]);
+				console.log("Response of API: ", res.data["shortUrl"]);
 			})
 			.catch((error) => {
 				console.log("Facing error: ", error.message);
@@ -25,15 +29,23 @@ function App() {
 
 	return (
 		<div className="container">
-			<h1 className="title">URL Shortening</h1>
+			<h1 className="title">Enter URL to shorten</h1>
 			{/* Make textinput a components */}
 			<TextInput
-				label="Shorten URL: "
 				name="inputUrl"
 				changeHandler={changeHandler}
 				clickHandler={clickHandler}
-				buttonName="Go!"
+				buttonName="SHORT IT!"
+				placeholder="https://www.example.com"
 			/>
+			{/* Check if array is not empty */}
+			{shortUrls.length > 0
+				? shortUrls.map((shortUrl, index) => (
+						<div key={index} className="cardContainer">
+							<ResultBox shortUrl={shortUrl} longUrl={url} />
+						</div>
+				  ))
+				: ""}
 		</div>
 	);
 }
