@@ -40,7 +40,7 @@ function App() {
 			{shortUrls.length > 0
 				? shortUrls.map((shortUrl, index) => (
 						<div key={index} className="cardContainer">
-							<ResultBox shortUrl={shortUrl} longUrl={url} />
+							<ResultBox shortUrl={shortUrl} />
 						</div>
 				  ))
 				: ""}
