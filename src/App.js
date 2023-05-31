@@ -15,12 +15,10 @@ function App() {
 			})
 			.then((res) => {
 				setShortUrls((current) => [...current, res.data["shortUrl"]]);
-				console.log("Response of API: ", res.data["shortUrl"]);
 			})
 			.catch((error) => {
 				console.log("Facing error: ", error.message);
 			});
-		console.log("Clicked", url);
 	}
 
 	function changeHandler(e) {
